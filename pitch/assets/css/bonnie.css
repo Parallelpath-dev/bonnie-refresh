@@ -499,3 +499,38 @@ img.at { max-width: none; }
   }
   .media-empty { display: none; }
 }
+
+/* ---------- CLIP WITH SYNCED LINES ----------
+   A .media box with data-clip, a video and a .media-play button, plus a
+   .clip-lines group with the same data-clip. Each .clip-line carries
+   data-from, the second in the clip where it takes over. clip-sync.js
+   fades the right line in as the video plays. Without the script, the
+   first line (is-on in the markup) shows. */
+.media-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.media-play::before,
+.media-play::after { content: ""; grid-area: 1 / 1; }
+.media-play::before {
+  width: calc(160 * var(--u));
+  height: calc(160 * var(--u));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--night) 55%, transparent);
+}
+.media-play::after {
+  margin-left: calc(12 * var(--u));
+  width: calc(40 * var(--u));
+  height: calc(48 * var(--u));
+  background: var(--linen);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.media.is-playing .media-play { display: none; }
+.clip-line { opacity: 0; transition: opacity var(--move-fast) var(--move-ease); }
+.clip-line.is-on { opacity: 1; }

@@ -80,7 +80,14 @@
     <!-- Your turn. -->
     <article class="slide ground-night mark-ink">
       <img class="photo at" src="assets/img/annie-spratt-4na3ctjO7Q4-unsplash.jpg" alt="" style="--x: -237; --y: -214; --w: 2394; --h: 1347">
-      <h2 class="display-2 at" style="--x: 40; --y: 795; --w: 1700">Your turn.</h2>
+      <div class="shade at" style="--x: 0; --y: 0; --w: 1920; --h: 1080"></div>
+      <!-- Two steps: "Your turn." on arrival; on Next it dims and the prompt fades in. -->
+      <div data-build="step">
+        <div data-move="dim">
+          <h2 class="display-2 at" style="--x: 40; --y: 640; --w: 1700">Your turn.</h2>
+        </div>
+        <p class="display-6 at" style="--x: 44; --y: 840; --w: 1500">If you could wave your magic wand and change one thing about the Bonnie brand going forward, what would it be?</p>
+      </div>
     </article>
 
     <!-- Our time together -->
@@ -100,7 +107,7 @@
         <div>
           <div class="rule at" style="--x: 1000; --y: 324; --w: 872"></div>
           <p class="subhead at nowrap" style="--x: 1000; --y: 344">03</p>
-          <p class="subhead at" style="--x: 1120; --y: 344; --w: 752">RFP</p>
+          <p class="subhead at" style="--x: 1120; --y: 344; --w: 752">What you asked for</p>
         </div>
         <div>
           <div class="rule at" style="--x: 1000; --y: 436; --w: 872"></div>
@@ -136,14 +143,22 @@
 
   <section class="chapter" data-name="Brand Reciprocity">
 
-    <!-- Setup. Video beside text. -->
+    <!-- Meet Catherine. Video beside text. The lines change on their own as the clip plays (clip-sync.js). -->
     <article class="slide ground-night">
-      <p class="small-heading at nowrap" style="--x: 48; --y: 100">Setup</p>
-      <figure class="media at" style="--x: 48; --y: 150; --w: 1180; --h: 664">
-        <span class="media-empty"><span class="small-heading">Video: interview clip</span></span>
+      <p class="small-heading at nowrap" style="--x: 48; --y: 100">Meet Catherine, our first interview</p>
+      <figure class="media at" data-clip="catherine" style="--x: 48; --y: 150; --w: 1180; --h: 664">
+        <video src="assets/video/Untitled%20design%204.mp4" poster="assets/video/Untitled%20design%204%20poster.jpg" playsinline preload="metadata"></video>
+        <button class="media-play" type="button" aria-label="Play Catherine’s interview"></button>
       </figure>
-      <p class="body-large at" style="--x: 1276; --y: 150; --w: 596">What the person says in the clip goes here, a few sentences at a time.</p>
-      <p class="small-heading at muted" style="--x: 1276; --y: 272; --w: 596">Name, casual gardener</p>
+      <div class="clip-lines" data-clip="catherine">
+        <p class="body-large at clip-line is-on" data-from="0" style="--x: 1276; --y: 150; --w: 596">“Hi, I’m Cat.”</p>
+        <p class="body-large at clip-line" data-from="1" style="--x: 1276; --y: 150; --w: 596">“Would you call yourself a gardener?”<br>“Yes.”<br>“Why?”</p>
+        <p class="body-large at clip-line" data-from="3" style="--x: 1276; --y: 150; --w: 596">“Because I have had a garden, and I try to have a garden. Um, as often as I can.”</p>
+        <p class="body-large at clip-line" data-from="8" style="--x: 1276; --y: 150; --w: 596">“My mom’s side of the family are all gardeners, so every time I would visit my grandma, she would instantly take us from the car to her garden.”</p>
+        <p class="body-large at clip-line" data-from="16" style="--x: 1276; --y: 150; --w: 596">“So I always wanted to do it. I was always around it.”</p>
+        <p class="body-large at clip-line" data-from="18" style="--x: 1276; --y: 150; --w: 596">“I liked the idea of having everything from scratch, and from something that you grew outside.”</p>
+      </div>
+      <p class="small-heading at muted" style="--x: 1276; --y: 400; --w: 596">Catherine, casual gardener</p>
     </article>
 
     <!-- Reciprocity -->
@@ -175,16 +190,16 @@
       <h2 class="display-3 at" style="--x: 1000; --y: 473.5; --w: 872">Identity first</h2>
     </article>
 
-    <!-- Up next: Recapping RFP -->
+    <!-- Up next: What you asked for -->
     <article class="slide ground-coral" data-kind="section">
       <p class="lead at" style="--x: 48; --y: 104; --w: 760">Just covered: Brand Reciprocity, the casual gardener, identity first</p>
       <img class="photo at" src="assets/img/getty-images-5y0zuTMVs48-unsplash.jpg" alt="" style="--x: 1332; --y: 100; --w: 540; --h: 400">
-      <h2 class="display-2 at" style="--x: 40; --y: 670; --w: 1800">Up next:<br>Recapping RFP</h2>
+      <h2 class="display-2 at" style="--x: 40; --y: 670; --w: 1800">Up next:<br>What you asked for</h2>
     </article>
 
   </section>
 
-  <section class="chapter" data-name="RFP">
+  <section class="chapter" data-name="What you asked for">
 
     <!-- What you asked for. Photo divider. -->
     <article class="slide ground-slate">
@@ -1047,5 +1062,6 @@
 </main>
 
 <script src="assets/js/deck.js"></script>
+<script src="assets/js/clip-sync.js"></script>
 </body>
 </html>
