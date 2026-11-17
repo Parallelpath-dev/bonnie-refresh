@@ -345,6 +345,16 @@ img, video { display: block; max-width: 100%; }
   object-fit: cover;
 }
 .media > video, .media > iframe { background: #000; }
+/* Captions on a video. Browsers style these their own way, so set the
+   type to match the page. CSS only, no script. */
+.media video::cue {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.6vw, 1.75rem);
+  line-height: 1.3;
+  color: #F6EDE6;
+  background: rgba(21, 21, 21, 0.75);
+}
+
 .media-empty {
   position: absolute;
   inset: 0;
