@@ -219,7 +219,7 @@
     </article>
 
     <!-- What success looks like -->
-    <article class="slide ground-linen">
+    <article id="go-success" class="slide ground-linen">
       <h2 class="display-3 at nowrap" style="--x: 42; --y: 100">What success<br>looks like</h2>
       <div data-build="step">
         <div>
@@ -392,7 +392,7 @@
     </article>
 
     <!-- They won’t call themselves gardeners. Four insight tiles. -->
-    <article class="slide ground-linen">
+    <article id="go-gardeners" class="slide ground-linen">
       <h2 class="display-4 at" style="--x: 40; --y: 100; --w: 820">They won’t call themselves gardeners.</h2>
       <!-- Steps: the first insight tile shows on arrival; each Next adds one more. -->
       <div data-build="step">
@@ -524,7 +524,7 @@
     </article>
 
     <!-- Brand architecture -->
-    <article class="slide ground-linen">
+    <article id="go-architecture" class="slide ground-linen">
       <h2 class="display-5 at" style="--x: 40; --y: 100; --w: 1400">Brand architecture</h2>
       <div class="placeholder at" style="--x: 48; --y: 220; --w: 1824; --h: 780"><span class="small-heading">Diagram: brand architecture</span></div>
     </article>
@@ -932,17 +932,23 @@
           <h3 class="display-6 at" style="--x: 1466; --y: 720; --w: 374">Customer care on social</h3>
         </div>
       </div>
-      <!-- Next: the one idea we took time to visualize. Today's QR page beside our idea. -->
+      <!-- Next: the one idea we took time to visualize. One click shows today's QR page, large;
+           the next replaces it with our idea in the same spot. -->
       <div data-build="step">
         <div></div>
         <div>
-          <div class="block at" style="--ink: var(--linen); --x: 0; --y: 400; --w: 1920; --h: 600"></div>
-          <p class="label at nowrap" style="--x: 48; --y: 460">Today</p>
-          <p class="body-large at" style="--x: 48; --y: 488; --w: 560">Plant specs and a buy link.</p>
-          <p class="label at nowrap" style="--x: 48; --y: 660">Our idea</p>
-          <p class="body-large at" style="--x: 48; --y: 688; --w: 560">Care help, right from the pot.</p>
-          <img class="photo at" src="assets/img/qr-page-today.jpg" alt="Where the QR code on a Bonnie basil pot leads today" style="--x: 760; --y: 420; --w: 310; --h: 560">
-          <img class="photo at" src="assets/img/qr-page-concept.jpg" alt="Concept: a care page with a video, calendar reminders and AI help" style="--x: 1180; --y: 420; --w: 310; --h: 560">
+          <div class="block at" style="--ink: var(--linen); --x: 0; --y: 76; --w: 1920; --h: 940"></div>
+          <p class="small-heading at nowrap" style="--x: 48; --y: 100">After the shelf: the QR on the pot</p>
+          <p class="label at nowrap" style="--x: 48; --y: 300">Today</p>
+          <h3 class="display-4 at" style="--x: 40; --y: 340; --w: 900">Plant specs and a buy link.</h3>
+          <img class="at" src="assets/img/qr-page-today.png" alt="Where the QR code on a Bonnie basil pot leads today" style="--x: 1100; --y: 100; --w: 487; --h: 880">
+        </div>
+        <div>
+          <div class="block at" style="--ink: var(--linen); --x: 0; --y: 76; --w: 1920; --h: 940"></div>
+          <p class="small-heading at nowrap" style="--x: 48; --y: 100">After the shelf: the QR on the pot</p>
+          <p class="label at nowrap" style="--x: 48; --y: 300">Our idea</p>
+          <h3 class="display-4 at" style="--x: 40; --y: 340; --w: 900">Care help, right from the pot.</h3>
+          <img class="at" src="assets/img/qr-page-concept.png" alt="Concept: a care page with a video, calendar reminders and AI help" style="--x: 1100; --y: 100; --w: 487; --h: 880">
         </div>
       </div>
     </article>
@@ -958,15 +964,48 @@
 
   <section class="chapter" data-name="Parallel Path">
 
-    <!-- Care instructions for the Bonnie brand. -->
-    <article class="slide ground-linen">
-      <h2 class="display-3 at" style="--x: 40; --y: 100; --w: 1104">Care instructions for the Bonnie brand.</h2>
-      <div class="rule at" style="--x: 1000; --y: 616; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 636; --w: 872">GTM recap</p>
-      <div class="rule at" style="--x: 1000; --y: 740; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 760; --w: 872">Keeping your decision makers aligned through decisions</p>
-      <div class="rule at" style="--x: 1000; --y: 864; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 884; --w: 872">Build understanding, adoption + momentum</p>
+    <!-- Care instructions for the brand. From layouts.html, 25. Rows, a title and a line.
+         Next: the internal launch ideas rise in as four tiles with line icons. -->
+    <article id="go-care" class="slide ground-linen">
+      <h2 class="display-3 at" style="--x: 40; --y: 100; --w: 880">Care instructions for the brand.</h2>
+      <div data-build>
+        <div>
+          <div class="rule at" style="--x: 1000; --y: 110; --w: 872"></div>
+          <h3 class="display-5 at" style="--x: 996; --y: 138; --w: 876">Aligned</h3>
+          <p class="body-small at" style="--x: 1000; --y: 246; --w: 872">Your decision makers stay aligned through each decision.</p>
+        </div>
+        <div>
+          <div class="rule at" style="--x: 1000; --y: 330; --w: 872"></div>
+          <h3 class="display-5 at" style="--x: 996; --y: 358; --w: 876">Adopted</h3>
+          <p class="body-small at" style="--x: 1000; --y: 466; --w: 872">Build understanding, adoption and momentum inside Bonnie.</p>
+        </div>
+      </div>
+      <div data-build="step">
+        <div></div>
+        <div>
+          <p class="small-heading at nowrap" data-move="fade" style="--x: 48; --y: 590">Ideas for your internal launch</p>
+          <div data-move="rise">
+            <div class="tile at" style="--x: 48; --y: 640; --w: 438; --h: 320"></div>
+            <svg class="at" viewBox="0 0 100 100" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--x: 80; --y: 668; --w: 96; --h: 96"><rect x="10" y="16" width="80" height="54" rx="6"/><path d="M38 86h24M50 70v16"/><path d="M24 34h30M24 46h22M62 32h14v22H62z"/></svg>
+            <h3 class="display-6 at" style="--x: 80; --y: 832; --w: 374">SharePoint intranet</h3>
+          </div>
+          <div data-move="rise">
+            <div class="tile at" style="--x: 510; --y: 640; --w: 438; --h: 320"></div>
+            <svg class="at" viewBox="0 0 100 100" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--x: 542; --y: 668; --w: 96; --h: 96"><rect x="36" y="10" width="28" height="48" rx="14"/><path d="M24 46c0 14 12 24 26 24s26-10 26-24M50 70v18M36 88h28"/></svg>
+            <h3 class="display-6 at" style="--x: 542; --y: 832; --w: 374">Internal podcast</h3>
+          </div>
+          <div data-move="rise">
+            <div class="tile at" style="--x: 972; --y: 640; --w: 438; --h: 320"></div>
+            <svg class="at" viewBox="0 0 100 100" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--x: 1004; --y: 668; --w: 96; --h: 96"><rect x="12" y="24" width="76" height="54" rx="6"/><path d="M12 30l38 26 38-26"/><path d="M70 14c0-6 5-10 10-10 0 6-5 10-10 10zM70 14v8"/></svg>
+            <h3 class="display-6 at" style="--x: 1004; --y: 832; --w: 374">Monthly Harvest email</h3>
+          </div>
+          <div data-move="rise">
+            <div class="tile at" style="--x: 1434; --y: 640; --w: 438; --h: 320"></div>
+            <svg class="at" viewBox="0 0 100 100" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--x: 1466; --y: 668; --w: 96; --h: 96"><circle cx="50" cy="30" r="12"/><circle cx="22" cy="40" r="9"/><circle cx="78" cy="40" r="9"/><path d="M28 86c0-14 10-24 22-24s22 10 22 24M6 80c0-10 7-18 16-18M94 80c0-10-7-18-16-18"/></svg>
+            <h3 class="display-6 at" style="--x: 1466; --y: 832; --w: 374">Quarterly town halls</h3>
+          </div>
+        </div>
+      </div>
     </article>
 
     <!-- Your team at Parallel Path. Seven plant tags, staggered like a planted bed, no hierarchy. The tags rise in one by one.
@@ -1052,15 +1091,32 @@
       <img class="photo at" src="assets/img/zoe-richardson-tbiV-yc903g-unsplash.jpg" alt="" style="--x: 1000; --y: 100; --w: 872; --h: 880">
     </article>
 
-    <!-- Success. Together -->
+    <!-- What we covered. The recap. Each row links back to the slide where we showed it (slide-links.js),
+         so the presenter can click back if the room wants to. The lens links to What success looks like. -->
     <article class="slide ground-linen">
-      <h2 class="display-3 at" style="--x: 40; --y: 100; --w: 880">Success. Together</h2>
-      <div class="rule at" style="--x: 1000; --y: 100; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 120; --w: 872">Build brand relevance</p>
-      <div class="rule at" style="--x: 1000; --y: 224; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 244; --w: 872">Create portfolio clarity</p>
-      <div class="rule at" style="--x: 1000; --y: 348; --w: 872"></div>
-      <p class="subhead at" style="--x: 1000; --y: 368; --w: 872">Enable execution</p>
+      <h2 class="display-3 at" style="--x: 40; --y: 100; --w: 880">What we covered.</h2>
+      <div data-build>
+        <a class="row-link" data-slide="go-gardeners" href="#">
+          <div class="rule at" style="--x: 1000; --y: 100; --w: 872"></div>
+          <p class="subhead at" style="--x: 1000; --y: 120; --w: 872">Build brand relevance</p>
+          <span class="body-small at muted" style="--x: 1000; --y: 170; --w: 872; --tone: 75">Brand trust. Inspires Casual Gardeners.</span>
+        </a>
+        <a class="row-link" data-slide="go-architecture" href="#">
+          <div class="rule at" style="--x: 1000; --y: 280; --w: 872"></div>
+          <p class="subhead at" style="--x: 1000; --y: 300; --w: 872">Create portfolio clarity</p>
+          <span class="body-small at muted" style="--x: 1000; --y: 350; --w: 872; --tone: 75">A clearer portfolio, beyond edibles.</span>
+        </a>
+        <a class="row-link" data-slide="go-care" href="#">
+          <div class="rule at" style="--x: 1000; --y: 460; --w: 872"></div>
+          <p class="subhead at" style="--x: 1000; --y: 480; --w: 872">Enable execution</p>
+          <span class="body-small at muted" style="--x: 1000; --y: 530; --w: 872; --tone: 75">Works across channels. Earns internal adoption.</span>
+        </a>
+        <a class="row-link" data-slide="go-success" href="#">
+          <div class="rule at" style="--x: 1000; --y: 640; --w: 872"></div>
+          <p class="subhead at" style="--x: 1000; --y: 660; --w: 872">Your evaluation lens</p>
+          <span class="body-small at muted" style="--x: 1000; --y: 710; --w: 872; --tone: 75">Strategically distinctive. Operationally scalable. Practical to activate.</span>
+        </a>
+      </div>
     </article>
 
     <!-- Everything from this session on one page -->
@@ -1102,5 +1158,6 @@
 
 <script src="assets/js/deck.js"></script>
 <script src="assets/js/clip-sync.js"></script>
+<script src="assets/js/slide-links.js"></script>
 </body>
 </html>
