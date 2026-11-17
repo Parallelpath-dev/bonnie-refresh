@@ -185,7 +185,8 @@ Resonate and MediaRadar.
 
 A quote in serif italic with the speaker under it as a label. Quotes
 stack with a fine rule between them. Add `is-large` to a `quote` for one
-quote set very big across `part-wide`. In Casual gardener interviews and
+quote set very big across `part-wide`. Add `is-compact` to `quotes` for a
+stack of several quotes; it sets them at about the part headline size. In Casual gardener interviews and
 Reviews and social.
 
 ```html
