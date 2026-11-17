@@ -534,3 +534,9 @@ img.at { max-width: none; }
 .media.is-playing .media-play { display: none; }
 .clip-line { opacity: 0; transition: opacity var(--move-fast) var(--move-ease); }
 .clip-line.is-on { opacity: 1; }
+/* Subtitles that change with the clip sit over bright video, so they get a soft dark halo. */
+.clip-lines .media-subtitle {
+  color: var(--linen);
+  text-shadow: 0 0 calc(14 * var(--u)) color-mix(in srgb, var(--night) 90%, transparent),
+               0 calc(2 * var(--u)) calc(6 * var(--u)) color-mix(in srgb, var(--night) 70%, transparent);
+}
