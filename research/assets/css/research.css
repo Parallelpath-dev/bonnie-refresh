@@ -345,14 +345,18 @@ img, video { display: block; max-width: 100%; }
   object-fit: cover;
 }
 .media > video, .media > iframe { background: #000; }
-/* Captions on a video. Browsers style these their own way, so set the
-   type to match the page. CSS only, no script. */
-.media video::cue {
-  font-family: var(--sans);
-  font-size: clamp(1rem, 1.6vw, 1.75rem);
-  line-height: 1.3;
-  color: #F6EDE6;
-  background: rgba(21, 21, 21, 0.75);
+/* ---------- CLIP WITH SYNCED LINES ----------
+   The lines beside a clip share one spot. clip-sync.js shows the line
+   whose data-from has passed as the video plays. Without the script,
+   the first line shows. In print, every line shows, in order. */
+.clip-lines { display: grid; }
+.clip-line { grid-area: 1 / 1; opacity: 0; transition: opacity 0.3s ease; }
+.clip-line.is-on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .clip-line { transition: none; } }
+@media print {
+  .clip-lines { display: block; }
+  .clip-line { opacity: 1; }
+  .clip-line + .clip-line { margin-top: 0.5em; }
 }
 
 .media-empty {

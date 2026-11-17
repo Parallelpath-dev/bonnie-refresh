@@ -23,7 +23,8 @@ assets/video/            video files small enough to keep in git
 
 Nothing here links to another Parallel Path page or stylesheet, and the
 fonts are in the folder. Every path is relative, so the folder runs from
-any host, or straight off disk, with no build step and no script. Open
+any host, or straight off disk, with no build step. The one script is `assets/js/clip-sync.js`
+(see Clip with synced lines). Open
 `index.html` in a browser to see it. Keep it that way: no CDN, no Google
 Fonts, no absolute addresses.
 
@@ -280,6 +281,26 @@ GitHub refuses any file over 100 MB, so host long clips on Vimeo or
 similar and embed them. An embed is the one thing on the page that needs
 a connection. A `.media` box on its own, without `.clip`, runs the full
 width of its slot.
+
+### Clip with synced lines
+
+The one exception to "no script" (Jackson, Nov 17), so interview clips
+work as they do in the deck. Put `data-clip` on the `.media` figure and a
+`.clip-lines` group with the same `data-clip` in `clip-text`. Each
+`.clip-line` carries `data-from`, the second where it takes over.
+`assets/js/clip-sync.js` swaps the lines as the video plays. Without the
+script the first line (`is-on`) shows. In print every line shows.
+
+```html
+<figure class="media" data-clip="name"><video src="..." controls playsinline preload="metadata"></video></figure>
+<div class="clip-text">
+  <div class="clip-lines" data-clip="name">
+    <p class="body-large clip-line is-on" data-from="0">“First line.”</p>
+    <p class="body-large clip-line" data-from="4">“Next line.”</p>
+  </div>
+  <p class="small-heading muted">Name, casual gardener</p>
+</div>
+```
 
 ### Screenshot block
 
