@@ -7,14 +7,15 @@ the pitch deck in `../pitch/`, this page, and the proposal in
 same type classes, the same top line, rules and tiles. Michael Benjamin set
 that art direction.
 
-The page is an empty format. The nine section names are final. Every other
+The page has eight sections (Jackson, Nov 18: Resonate and MediaRadar removed,
+Tagged creator posts added, Site audit moved below Reviews and social). Every other
 line of copy is a placeholder, and every sand block is labeled with what
 goes in it.
 
 ## Files
 
 ```
-index.html               the page, a hero and nine sections
+index.html               the page, a hero and eight sections
 assets/css/research.css  colors, type, the frame, every block, print
 assets/fonts/            IBM Plex, with its Open Font License
 assets/img/              photos, screenshots and charts go here
@@ -121,7 +122,7 @@ One short paragraph under a section title. Every section has one.
 
 A big number with its line beside it, one stat per row. The number takes
 the accent on its own: Lime on Slate or Night, Slate on Linen. In
-Overview, Mystery shopping and MediaRadar.
+Overview, Mystery shopping and Tagged creator posts.
 
 ```html
 <div class="stats">
@@ -147,7 +148,7 @@ One number on its own, with a line and a source. In Reviews and social.
 A label, a bar and a value on each line. `--w` on the fill is the value
 itself, so a 28% bar fills 28% of the track. Never scale the bars to the
 largest one. The widths in the page now are stand-ins. In Search and AI
-audit, Reviews and social, and Resonate.
+audit and Reviews and social.
 
 ```html
 <div class="bars">
@@ -165,8 +166,7 @@ Column heads in the label style, soft rules between rows. `num` on a head
 or a cell sets a figure flush right. The first cell of a body row is a
 `th`. Keep the `table-wrap` so a wide table scrolls sideways on a phone
 without stretching the page. A table with many columns goes in
-`part-wide`. A small one fits in `part-main`. In Search and AI audit,
-Resonate and MediaRadar.
+`part-wide`. A small one fits in `part-main`. In Search and AI audit.
 
 ```html
 <div class="table-wrap">
@@ -207,7 +207,7 @@ with the image:
 
 ```html
 <!-- Before -->
-<div class="placeholder" style="--ratio: 4 / 3"><span class="small-heading">Chart: Resonate audience insights</span></div>
+<div class="placeholder" style="--ratio: 4 / 3"><span class="small-heading">Chart: audience insights</span></div>
 
 <!-- After -->
 <img class="photo" src="assets/img/file.png" alt="What the chart shows" style="--ratio: 4 / 3">
