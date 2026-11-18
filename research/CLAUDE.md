@@ -8,7 +8,7 @@ same type classes, the same top line, rules and tiles. Michael Benjamin set
 that art direction.
 
 The page has eight sections (Jackson, Nov 18: Resonate and MediaRadar removed,
-Tagged creator posts added, Site audit moved below Reviews and social). Every other
+Tagged creator posts added; Site audit sits right after Search and AI audit). Every other
 line of copy is a placeholder, and every sand block is labeled with what
 goes in it.
 
