@@ -444,6 +444,10 @@ img, video { display: block; max-width: 100%; }
   .tiles.is-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+/* Embedded Google Drive folder. Needs a connection, like a video embed. */
+.embed-folder { margin-top: var(--stack); background: #fff; outline: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
+.embed-folder iframe { display: block; width: 100%; height: clamp(22rem, 32vw, 32rem); border: 0; }
+
 /* ---------- NARROW ----------
    Under 900 wide the two halves stack. */
 @media (max-width: 900px) {

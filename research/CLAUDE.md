@@ -319,6 +319,14 @@ script the first line (`is-on`) shows. In print every line shows.
 </div>
 ```
 
+### Embedded Drive folder
+
+A shared Google Drive folder shown in place, for files people should be
+able to watch or download. Put a `figure.embed-folder` holding an iframe
+of `https://drive.google.com/embeddedfolderview?id=FOLDER_ID#grid` under
+the block it belongs to. The folder must be shared as anyone with the
+link. In Casual gardener interviews (all ten videos).
+
 ### Screenshot block
 
 A screenshot with a caption under it. `--ratio` on the `figure` sets the
