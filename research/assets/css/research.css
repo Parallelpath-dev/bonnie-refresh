@@ -444,9 +444,9 @@ img, video { display: block; max-width: 100%; }
   .tiles.is-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Embedded Google Drive folder. Needs a connection, like a video embed. */
-.embed-folder { margin-top: var(--stack); background: #fff; outline: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); }
-.embed-folder iframe { display: block; width: 100%; height: clamp(22rem, 32vw, 32rem); border: 0; }
+/* A link inside copy: the ink colour, underlined. */
+.part-side a, .part-main p a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.part-side a:hover, .part-main p a:hover { color: var(--mark); }
 
 /* ---------- NARROW ----------
    Under 900 wide the two halves stack. */
