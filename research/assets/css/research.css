@@ -436,6 +436,14 @@ img, video { display: block; max-width: 100%; }
   background: var(--tile);
 }
 
+/* Quote gallery. Tiles that each hold one short quote and where it was
+   posted, laid out like a photo grid. Add is-quotes to .tiles. */
+.tiles.is-quotes .tile { aspect-ratio: auto; min-height: clamp(12rem, 15vw, 18rem); }
+.tiles.is-quotes .quote { font-size: clamp(1.125rem, 1.35vw, 1.625rem); line-height: 1.22; }
+@media (max-width: 1400px) and (min-width: 901px) {
+  .tiles.is-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ---------- NARROW ----------
    Under 900 wide the two halves stack. */
 @media (max-width: 900px) {

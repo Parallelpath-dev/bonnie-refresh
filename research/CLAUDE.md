@@ -198,6 +198,22 @@ Reviews and social.
 </div>
 ```
 
+### Quote gallery
+
+Short quotes as a grid of tiles, for when there are too many to stack.
+Add `is-quotes` to `.tiles` in `part-wide`. Each tile is a `figure` with a
+`quote` and a `label` saying where it was posted. Five across on wide
+screens, two across under 1400, one column under 900. In Reviews and social.
+
+```html
+<div class="tiles is-quotes" style="--per-row: 5">
+  <figure class="tile">
+    <blockquote class="quote">“Quote.”</blockquote>
+    <figcaption class="label muted">Where it was posted</figcaption>
+  </figure>
+</div>
+```
+
 ### Placeholder
 
 Where a photo, chart or screenshot goes once it exists. The label inside
