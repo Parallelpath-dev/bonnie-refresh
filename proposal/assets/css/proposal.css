@@ -306,6 +306,8 @@ img { display: block; max-width: 100%; }
 .person { display: flex; flex-direction: column; min-height: 0; }
 .person > .placeholder,
 .person > .photo { flex: 0 1 auto; min-height: 0; aspect-ratio: 3 / 4; }
+/* Headshots are cropped near square, like the pitch deck's team tags. */
+.person > img.photo { aspect-ratio: 1184 / 1160; }
 .person > .subhead { margin-top: max(1.15cqw, calc(12px * var(--floor))); }
 .person > .label { margin-top: max(0.42cqw, calc(4px * var(--floor))); }
 
