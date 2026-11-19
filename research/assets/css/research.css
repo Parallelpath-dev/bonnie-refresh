@@ -448,6 +448,10 @@ img, video { display: block; max-width: 100%; }
 .part-side a, .part-main p a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
 .part-side a:hover, .part-main p a:hover { color: var(--mark); }
 
+/* A short quote under a row's line, with the speaker as a label. */
+.row-quote { margin-top: var(--flow); font: italic 300 clamp(1.0625rem, 1.3vw, 1.5rem) / 1.3 var(--serif); }
+.row-quote .label { font-style: normal; margin-left: 0.4em; white-space: nowrap; }
+
 /* ---------- NARROW ----------
    Under 900 wide the two halves stack. */
 @media (max-width: 900px) {

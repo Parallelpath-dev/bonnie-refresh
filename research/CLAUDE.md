@@ -353,6 +353,20 @@ Site audit and More ideas.
 </div>
 ```
 
+### Row with a quote
+
+A row can carry one short quote under its line: `p.row-quote` in serif
+italic, with the speaker's first name as a `label` at the end. In Casual
+gardener interviews (Main takeaways).
+
+```html
+<div class="row">
+  <h4 class="display-5">Row title</h4>
+  <p class="body-small">A line of supporting copy.</p>
+  <p class="row-quote">“Quote.” <span class="label muted">Name</span></p>
+</div>
+```
+
 ### Panel
 
 A flat panel for a document or an excerpt: a label, then the text. It
