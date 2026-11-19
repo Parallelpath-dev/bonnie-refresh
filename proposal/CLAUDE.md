@@ -11,8 +11,10 @@ with a few words per slide. This deck carries paragraphs, lists and
 tables, so its slides reflow and its chapters have an index.
 
 Copy is filled in from John's Scope of Services outline (Nov 2026): the
-three phases, their activities, fees of $100k each ($300k total) and
-approximate timing. The pricing table runs by phase, not by tier. "Brand
+three phases, their activities and fees of $100k each ($300k total).
+Timing follows Bonnie's brief, not John's outline (Jackson, Nov 19):
+Define + Discover Dec to Feb ending in strategy approval, Develop in
+spring 2027, launch spring/summer 2027, Enable + Activate in FY2028. The pricing table runs by phase, not by tier. "Brand
 strategy" in Enable + Activate is read as a brand activation strategy;
 confirm with John. The Nice to have slide lists only what the plan covers
 (internal buy-in, PR through partners). Never print "RFP" on a slide; say
@@ -21,7 +23,7 @@ confirm with John. The Nice to have slide lists only what the plan covers
 ## Files
 
 ```
-index.html               the deck, 14 slides in seven chapters
+index.html               the deck, 15 slides in seven chapters
 assets/css/proposal.css  colors, type, the slide, the blocks, live, print
 assets/js/deck.js        builds the index and the frame, runs the deck
 assets/fonts/            IBM Plex, with its Open Font License
