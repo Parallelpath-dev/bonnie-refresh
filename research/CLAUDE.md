@@ -7,7 +7,8 @@ the pitch deck in `../pitch/`, this page, and the proposal in
 same type classes, the same top line, rules and tiles. Michael Benjamin set
 that art direction.
 
-The page has eight sections (Jackson, Nov 18: Resonate and MediaRadar removed,
+The page has seven sections (Jackson, Nov 18: Resonate and MediaRadar removed,
+Nov 19: More ideas removed,
 Tagged creator posts added; Site audit sits right after Search and AI audit). Every other
 line of copy is a placeholder, and every sand block is labeled with what
 goes in it.
@@ -15,7 +16,7 @@ goes in it.
 ## Files
 
 ```
-index.html               the page, a hero and eight sections
+index.html               the page, a hero and seven sections
 assets/css/research.css  colors, type, the frame, every block, print
 assets/fonts/            IBM Plex, with its Open Font License
 assets/img/              photos, screenshots and charts go here
@@ -344,7 +345,7 @@ In Search and AI audit and Site audit.
 A list of rows with a fine rule between them. A row is a serif title and
 a line, or one line on its own. The first row sits under the part's rule.
 Rows carry no numbers. In Casual gardener interviews, Mystery shopping,
-Site audit and More ideas.
+and Site audit.
 
 ```html
 <div class="rows">
@@ -383,7 +384,7 @@ always runs the full width of its slot. In Search and AI audit.
 
 Flat panels in a row, a serif title at the top and a line at the foot,
 like the deck's three tiles. `--per-row` sets how many across. Under 900
-wide they stack. In More ideas.
+wide they stack. Quote gallery in Reviews and social (`tiles is-quotes`).
 
 ```html
 <div class="tiles" style="--per-row: 3">

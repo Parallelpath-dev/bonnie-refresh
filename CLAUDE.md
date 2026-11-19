@@ -25,8 +25,8 @@ session on one page", the row "Research leave-behind" opens
 `../proposal/index.html`. Those are the only links between the three.
 Neither leave-behind links back. The hub links to all three.
 
-The research page and the proposal are written and built. The research
-page's last section, "More ideas", is still a placeholder.
+The research page (seven sections) and the proposal are written and
+built.
 
 ## The hub
 
