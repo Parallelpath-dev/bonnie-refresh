@@ -126,7 +126,9 @@
   // written. A move's step says when it shows. Its place in the step, n,
   // and the pauses ahead of it, g, set how long it waits (see MOTION in
   // bonnie.css).
-  var ENTER = { fade: 1, rise: 1, draw: 1 };
+  // carry is the sixth move, added for bonnie-rfp-v2.html (Michael's slides). See THE CARRY
+  // in bonnie.css. land is the seventh, added for bonnie-rfp-v3.html. See THE LAND.
+  var ENTER = { fade: 1, rise: 1, draw: 1, carry: 1, land: 1 };
   slides.forEach(function (f) {
     f.moves = []; f.dims = []; f.steps = 0; f.step = 0;
     var seq = {};
@@ -144,7 +146,13 @@
       f.dims.push({ el: el, at: step + 1 });
       f.steps = Math.max(f.steps, step + 1);
     }
-    function place(el, step, n, g) { if (el.dataset.move === 'dim') dim(el, step); else enter(el, step, n, g); }
+    // data-later="1" on a move holds it one step past its group's. A land
+    // inside a group that fades in uses it: the group arrives, then on
+    // the next step the element travels.
+    function place(el, step, n, g) {
+      step += parseInt(el.dataset.later, 10) || 0;
+      if (el.dataset.move === 'dim') dim(el, step); else enter(el, step, n, g);
+    }
     function walk(node) {
       [].slice.call(node.children).forEach(function (el) {
         if (el.hasAttribute('data-build')) {
@@ -371,4 +379,52 @@
   if (start !== null) cur = start;
   onMq();
   if (!live && start !== null) slides[start].s.scrollIntoView();
+})();
+
+/* MICHAEL'S SLIDES. A .wall with .rolls scrolls without end (see THE
+   ROLL in bonnie.css). For the loop to have no seam, each column needs
+   its images twice. This writes the second set, hidden from screen
+   readers, so the markup lists each image once. A page with no such
+   wall is left alone. */
+(function () {
+  [].slice.call(document.querySelectorAll('.wall.rolls .wall-col')).forEach(function (col) {
+    [].slice.call(col.children).forEach(function (kid) {
+      var twin = kid.cloneNode(true);
+      twin.setAttribute('aria-hidden', 'true');
+      col.appendChild(twin);
+    });
+    col.classList.add('is-doubled');
+  });
+})();
+
+/* MICHAEL'S SLIDES. A .screens box shows captures of one page a screen
+   at a time (see THE SCREENS in bonnie.css). While its slide is up,
+   this moves to the next screen every --secs seconds and goes back to
+   the first after the last. Each time the slide arrives it starts from
+   the first screen. In the stacked scroll no slide is ever up, so the
+   first screen stays. */
+(function () {
+  [].slice.call(document.querySelectorAll('.screens')).forEach(function (box) {
+    var kids = [].slice.call(box.children), slide = box.closest('.slide');
+    if (!kids.length) return;
+    var secs = parseFloat(getComputedStyle(box).getPropertyValue('--secs')) || 3;
+    var cur = 0, up = false, since = 0;
+    // The screen being left stays under the one fading in.
+    function show(n) {
+      kids.forEach(function (k, i) {
+        k.classList.toggle('is-under', i === cur && n !== cur);
+        k.classList.toggle('is-on', i === n);
+      });
+      cur = n;
+    }
+    show(0);
+    box.classList.add('is-run');
+    if (kids.length < 2 || !slide) return;
+    setInterval(function () {
+      var on = slide.classList.contains('is-on'), now = Date.now();
+      if (on && !up) { show(0); since = now; }
+      else if (on && now - since >= secs * 1000) { show((cur + 1) % kids.length); since = now; }
+      up = on;
+    }, 100);
+  });
 })();

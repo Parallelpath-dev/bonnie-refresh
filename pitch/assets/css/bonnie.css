@@ -540,3 +540,261 @@ img.at { max-width: none; }
   text-shadow: 0 0 calc(14 * var(--u)) color-mix(in srgb, var(--night) 90%, transparent),
                0 calc(2 * var(--u)) calc(6 * var(--u)) color-mix(in srgb, var(--night) 70%, transparent);
 }
+
+/* ---------- MICHAEL'S SLIDES ----------
+   Added 2026-11-16 for bonnie-rfp-v2.html. Everything from here to the
+   end of the file is new, and nothing above this line changed. These
+   rules travel with the slides: a slide copied into index.html needs
+   this block, assets/img/logos and assets/img/work. The logos in
+   assets/img/logos are drawn in Linen, the ink of a dark ground, so
+   they sit on Night, Slate or Teal. The six family logos also come as
+   Slate copies, named -slate, for Lime, Coral and Linen. All of it is
+   placed with .at, like the blocks above. Revised 2026-11-16: the
+   slow drift became the roll, and .is-on and .mid were added. Revised
+   2026-11-17: .rows replaced .bullets, .swatch.is-round went, and
+   --move-hold, the carry move, .phase, .laptop-lid, .laptop-base,
+   .screens and .waits were added. */
+
+/* One more motion token, beside the ones at the top of this file. The
+   hold between reveals on a diagram that builds from the center out. */
+:root { --move-hold: 1200ms; }
+
+/* A circle drawn as an outline, for the nested circle diagrams. */
+.circle { border: calc(2 * var(--u)) solid var(--ink); border-radius: 50%; }
+
+/* A line drawing, written as an inline <svg class="diagram at">. Its
+   strokes take the ink color. The stroke width is in the drawing's own
+   units, so set --stroke when a drawing uses another scale. */
+.diagram { overflow: visible; fill: none; stroke: var(--ink); stroke-width: var(--stroke, 6); }
+
+/* A flat block of one color, for a color chip on a mood board. --fill
+   sets the color. */
+.swatch { background: var(--fill, var(--oat)); }
+
+/* A .tile on a dark ground. Oat would glare there, so the panel is a
+   light tint of the ink. --tint sets how strong. */
+.tile.is-tint { background: color-mix(in srgb, var(--ink) calc(var(--tint, 10) * 1%), transparent); }
+
+/* A wall of images in columns, which run off the top and bottom of the
+   box. Each .wall-col is one column. --from on a column is where it
+   rests, in Figma pixels, measured up from the top of the box. A
+   .placeholder in a column is an open spot for another image, and
+   .wall-space is an empty one. Both take --h. .wall-cover is a block of
+   the ground color, for a headline set over the top of a column. */
+.wall {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--gap, 16) * var(--u));
+  overflow: hidden;
+}
+.wall-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap, 16) * var(--u));
+  translate: 0 calc(var(--from, 0) * var(--u));
+}
+.wall-col > img { width: 100%; height: auto; }
+.wall-col > .placeholder,
+.wall-space { flex: none; height: calc(var(--h) * var(--u)); }
+.wall-cover { background: var(--bg); }
+
+/* THE ROLL. This departs from the motion rules above, where nothing
+   loops. On a .wall with .rolls, each column scrolls without end for as
+   long as the slide is up, and every other column scrolls the other
+   way. deck.js writes each column's images a second time under the
+   first, so the loop has no seam. --secs on a column is how long one
+   pass takes, and --from is where the column rests. Take .rolls off a
+   wall and its columns sit still at --from. Print, the stacked scroll
+   and reduced motion show it still. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .deck.is-live .wall.rolls .wall-col.is-doubled {
+    animation: wall-roll calc(var(--secs, 60) * 1s) linear infinite;
+  }
+  .deck.is-live .wall.rolls .wall-col.is-doubled:nth-child(even) { animation-direction: reverse; }
+}
+@keyframes wall-roll {
+  from { translate: 0 calc(var(--from, 0) * var(--u)); }
+  to   { translate: 0 calc(var(--from, 0) * var(--u) - 50% - var(--gap, 16) / 2 * var(--u)); }
+}
+
+/* A filled part of a .diagram, in the color that marks the current
+   section. For the small Landscape circles on Rivals, Substitutes and
+   Benchmarks. */
+.diagram .is-on { fill: var(--mark); fill-rule: evenodd; stroke: none; }
+
+/* A short list with a fine rule above each line and one under the
+   last. Set the type class on the <ul>. */
+.rows { padding: 0; list-style: none; }
+.rows li {
+  padding: calc(9 * var(--u)) 0;
+  border-top: calc(1.5 * var(--u)) solid var(--ink);
+}
+.rows li:last-child { border-bottom: calc(1.5 * var(--u)) solid var(--ink); }
+
+/* Centers a text box on its --y, for a statement set beside a diagram. */
+.at.mid { transform: translateY(-50%); }
+
+/* A phase name in an outlined box. The same box sits on slides 2 and 3
+   at the same width, so the carry move reads as one box rising. */
+.phase {
+  display: flex;
+  align-items: center;
+  padding: 0 calc(30 * var(--u)) calc(6 * var(--u));
+  border: calc(2 * var(--u)) solid var(--ink);
+  font: 300 calc(60 * var(--u)) / 1 var(--serif);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+/* THE CARRY. A sixth move, data-move="carry", beside the five under
+   MOTION. The element is on screen from the start, --carry Figma pixels
+   lower than it rests, and travels up to its place once the dissolve
+   from the last slide is done. --carry-h, when set, is the height it
+   starts at, and it comes to its own --h on the way. Slide 3 uses it to
+   pick up the three phase boxes from where slide 2 leaves them. Slide
+   14 uses it inside a step build, with --move-cut at 0ms on the element,
+   so its large line rises on a Next with no wait. deck.js lists it with
+   the moves that enter. */
+@media screen {
+  .mv-carry { transition-property: translate, height; transition-duration: var(--move-slow); }
+  .mv-carry.is-in { transition-delay: calc(var(--move-cut) + var(--n, 0) * var(--move-stagger)); }
+  .deck.is-live .mv-carry:not(.is-in) {
+    translate: 0 calc(var(--carry, 0) * var(--u));
+    height: calc(var(--carry-h, var(--h)) * var(--u));
+  }
+}
+
+/* THE LAND. A seventh move, data-move="land", added 2026-11-19 for
+   bonnie-rfp-v3.html. The element is on screen before its step, in
+   another box: --fx, --fy, --fw and --fh, in Figma pixels like --x, --y,
+   --w and --h. On its step it travels to its own box and comes to its
+   own size. The logo pages use it: one logo sits large in the middle
+   of the page, then takes its place as the others fade in (.waits).
+   With data-later="1" it plays one step after the group it is written
+   in, so a row can fade in first and one logo can then leave it. The
+   size is set with width and height, not scale, so a logo stays sharp
+   at both ends. deck.js lists it with the moves that enter. */
+@media screen {
+  .mv-land { transition-property: translate, width, height; transition-duration: var(--move-slow); }
+  .deck.is-live .mv-land:not(.is-in) {
+    translate: calc((var(--fx, var(--x)) - var(--x)) * var(--u)) calc((var(--fy, var(--y)) - var(--y)) * var(--u));
+    width: calc(var(--fw, var(--w)) * var(--u));
+    height: calc(var(--fh, var(--h)) * var(--u));
+  }
+}
+
+/* A laptop, drawn as an outline. .laptop-lid is the screen's surround
+   and .laptop-base the deck under it, with the thumb notch. Both are
+   placed with .at. The page goes in a .screens box set 20 inside the lid.
+   --line on each is the weight of the outline, 2 unless set. */
+.laptop-lid {
+  border: calc(var(--line, 2) * var(--u)) solid var(--ink);
+  border-radius: calc(26 * var(--u)) calc(26 * var(--u)) 0 0;
+}
+.laptop-base {
+  border: calc(var(--line, 2) * var(--u)) solid var(--ink);
+  border-radius: calc(4 * var(--u)) calc(4 * var(--u)) calc(18 * var(--u)) calc(18 * var(--u));
+}
+.laptop-base::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--line, 2) * -1 * var(--u));
+  left: 50%;
+  width: calc(220 * var(--u));
+  height: calc(12 * var(--u));
+  translate: -50% 0;
+  border: calc(var(--line, 2) * var(--u)) solid var(--ink);
+  border-top: 0;
+  border-radius: 0 0 calc(10 * var(--u)) calc(10 * var(--u));
+}
+
+/* THE SCREENS. Like the roll, this departs from the motion rules above.
+   A .screens box holds captures of one page, a screen each, stacked on
+   one another. While the slide is up, deck.js shows them in order,
+   --secs seconds each, with a quick fade from one to the next, and
+   starts again after the last. Each new screen fades in over the one
+   before it, so the box never dips to its background. Print, the
+   stacked scroll and a page whose script did not run show the first
+   screen. */
+.screens {
+  overflow: hidden;
+  border-radius: calc(6 * var(--u));
+  background: #17131f;
+}
+.screens > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+.screens:not(.is-run) > img:first-child,
+.screens > img.is-under { opacity: 1; }
+.screens > img.is-on {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity var(--move-cut) var(--move-ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .screens > img.is-on { transition: none; }
+}
+
+/* A move that waits for a carry in its own step to finish before it
+   plays. --wait is its turn after that, two staggers apart. Slide 14
+   uses it: the large line rises, then the drawing arrives in order. */
+@media screen {
+  .mv.is-in.waits {
+    transition-delay: calc(var(--move-slow) + var(--wait, 0) * 2 * var(--move-stagger));
+  }
+}
+
+/* Added 2026-11-17, fifth round. */
+
+/* Breaks a short statement into lines of even length. For the line
+   beside the circle diagrams on Attributes, Customer and Landscape. */
+.balance { text-wrap: balance; }
+
+/* A line that is there on arrival and leaves on the next step. Write it
+   with data-move="dim" in the first child of a step build, and add
+   .leaves. Where the dim would drop it to 40 percent, it goes all the
+   way. It is never in the finished state, so print, the stacked scroll
+   and a page whose script did not run leave it out. Slide 14 uses it for
+   the line under "Recognition and relevance". */
+.leaves { display: none; }
+@media screen {
+  .deck.is-live .leaves { display: block; transition: opacity var(--move-fast) var(--move-ease); }
+  .deck.is-live .leaves.is-dim { opacity: 0; }
+  .deck.is-setting .leaves { transition: none; }
+}
+
+/* A block of another ground, full bleed, laid under everything on the
+   slide but over the slide's own color. Fade it in to change the ground
+   on a step. The frame keeps the first ground's ink, so pair grounds
+   that share an ink, like Coral and Linen. Slide 14 uses it. */
+.ground-swap {
+  z-index: -1;
+  background: var(--fill, var(--linen));
+}
+
+/* Added 2026-11-19, for the mockup slides in bonnie-rfp-v3.html. */
+
+/* A picture floated over a photo. Rounded corners and a soft shadow
+   lift it off the photo. Slide 36 uses it for the care page over the
+   store picture. */
+.float {
+  border-radius: calc(20 * var(--u));
+  box-shadow: 0 calc(24 * var(--u)) calc(72 * var(--u)) color-mix(in srgb, var(--night) 45%, transparent);
+}
+
+/* A phone, drawn as an outline, like the laptop. .phone is the body,
+   placed with .at. The picture goes in a .phone-screen box set 12
+   inside it, at 9 by 16. --line is the weight of the outline, 2 unless
+   set. Slide 34 uses three of them. */
+.phone {
+  border: calc(var(--line, 2) * var(--u)) solid var(--ink);
+  border-radius: calc(52 * var(--u));
+}
+.phone-screen { border-radius: calc(40 * var(--u)); }
