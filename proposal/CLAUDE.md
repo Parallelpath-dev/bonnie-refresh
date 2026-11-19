@@ -10,8 +10,13 @@ The structure is different. The pitch deck is a fixed 1920 by 1080 canvas
 with a few words per slide. This deck carries paragraphs, lists and
 tables, so its slides reflow and its chapters have an index.
 
-Every slide ships with placeholder copy: "Headline", "Body copy.", "Fee",
-"TBD", "Name", "Role". Chapter names and slide headlines are real.
+Copy is filled in from John's Scope of Services outline (Nov 2026): the
+three phases, their activities, fees of $100k each ($300k total) and
+approximate timing. The pricing table runs by phase, not by tier. "Brand
+strategy" in Enable + Activate is read as a brand activation strategy;
+confirm with John. The Nice to have slide lists only what the plan covers
+(internal buy-in, PR through partners). Never print "RFP" on a slide; say
+"your brief".
 
 ## Files
 
