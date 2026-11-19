@@ -1,12 +1,14 @@
 # Bonnie Plants RFP
 
 Parallel Path's pitch to Bonnie Plants for the brand refresh, as three
-HTML builds that read as one set.
+HTML builds that read as one set, plus a hub page that links to them.
 
 ```
+index.html  the hub, one screen linking to the three pieces
+assets/     the hub's own stylesheet and fonts
 pitch/      the presentation deck, 81 slides, plus a page of layouts
 research/   the research and findings page, one long scroll
-proposal/   the proposal deck, 14 slides, made to be read
+proposal/   the proposal deck, 15 slides, made to be read
 ```
 
 Each folder has its own `CLAUDE.md`. Read that file before editing
@@ -21,12 +23,24 @@ The pitch deck links to both. On the slide headed "Everything from this
 session on one page", the row "Research leave-behind" opens
 `../research/index.html` and the row "SOW leave-behind" opens
 `../proposal/index.html`. Those are the only links between the three.
-Neither leave-behind links back.
+Neither leave-behind links back. The hub links to all three.
 
-The pitch deck has its slides and layouts in place, with labeled
-placeholder blocks where images, charts and video still go. The two
-leave-behinds are empty formats: the section and chapter names are set,
-and the rest is placeholder copy and labeled placeholder blocks.
+The research page and the proposal are written and built. The research
+page's last section, "More ideas", is still a placeholder.
+
+## The hub
+
+`index.html` at the root is the page to send. It links to the three
+pieces in this order: the presentation (`pitch/index.html`), research
+and findings (`research/index.html`), the proposal
+(`proposal/index.html`). It is one screen on the night ground, with the
+same frame labels as the others ("Parallel Path + Bonnie Plants",
+"Brand refresh", "November 2026") at the top and the foot.
+
+The hub follows the same rule as the folders: its stylesheet
+(`assets/css/hub.css`) and fonts (`assets/fonts/`) are its own copies.
+Its tokens and type classes are a small subset of the research page's.
+If a folder is renamed, update its `href` here too.
 
 ## Each folder stands alone
 
@@ -92,7 +106,8 @@ dialog.
 Any static host works: GitHub Pages, Netlify, S3, a folder on a web
 server. Upload the files as they are.
 
-- **All three together.** Host this whole folder and keep `pitch/`,
+- **All three together.** Host this whole folder, with the hub at its
+  root and keep `pitch/`,
   `research/` and `proposal/` as siblings under one parent, with these
   names. The pitch deck's two links then work as they are.
 - **One folder alone.** Each folder runs alone. If `pitch/` is hosted
@@ -104,7 +119,8 @@ server. Upload the files as they are.
 - GitHub Pages runs Jekyll unless a file named `.nojekyll` sits at the
   root of the repo. Nothing here needs it today, since no folder name
   starts with an underscore. Add it if one ever does.
-- All three pages are marked `noindex, nofollow`. Keep that.
+- All four pages, the hub included, are marked `noindex, nofollow`.
+  Keep that.
 
 Photos keep the filename Unsplash gives them. Do not rename them.
 `.DS_Store` is ignored by `.gitignore` at this level.

@@ -282,6 +282,12 @@ for Team.
 </article>
 ```
 
+The Team slide uses `people is-tags`: each person sits on a pastel plant
+tag, rebuilt from the pitch deck's team slide (same order, colors and
+stagger). Each `.person` starts with an inline `<svg class="tag">`. Seven
+tags fit one row. Headshots are cropped from the full-size originals to
+match the pitch, on pure white.
+
 Three to six people fit one row. The photo blocks give up height before
 the slide overflows. To fill one, replace the placeholder with the photo:
 
