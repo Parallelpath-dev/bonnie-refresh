@@ -124,6 +124,10 @@ server. Upload the files as they are.
 - GitHub Pages runs Jekyll unless a file named `.nojekyll` sits at the
   root of the repo. Nothing here needs it today, since no folder name
   starts with an underscore. Add it if one ever does.
+- The set is served at `bonnie-brand-refresh.parallelpath.com`, from the
+  `CNAME` file at the root (GitHub Pages custom domain; the DNS is a CNAME
+  record to `parallelpath-dev.github.io`). `all-materials/` only forwards
+  to the hub at the root. Do not delete `CNAME`.
 - All four pages, the hub included, are marked `noindex, nofollow`.
   Keep that.
 
