@@ -348,6 +348,19 @@ img { display: block; max-width: 100%; }
 /* The closing slide. The Parallel Path wordmark runs the full width of
    the foot and off its edges, as on the pitch deck's opening slide. */
 .slide-close { padding-bottom: 19cqw; }
+/* Links on to the hub and the other two pieces, under the thank-you. */
+.close-links { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 1.5cqw 3cqw; margin-top: 3cqw; }
+.close-links a {
+  min-width: 14cqw;
+  padding-top: 0.8em;
+  border-top: 2px solid var(--lime);
+  font-size: max(11px, 0.9cqw);
+  color: var(--lime);
+  text-decoration: none;
+}
+.close-links a:hover, .close-links a:focus-visible { color: var(--linen); border-top-color: var(--linen); }
+/* Stacked, the footer carries the hub link. */
+.deck-home-foot { color: var(--lime); text-decoration: none; }
 .wordmark {
   position: absolute;
   left: -2.03cqw;
@@ -451,6 +464,21 @@ img { display: block; max-width: 100%; }
   .deck-pips i { width: 14px; height: 2px; background: color-mix(in srgb, var(--linen) 25%, transparent); }
   .deck-pips i.on { background: var(--lime); }
   .deck-ctrl { margin-top: auto; padding-top: 14px; display: flex; gap: 6px; }
+  /* Back to the hub, under the chapters. */
+  .deck-home {
+    display: block;
+    margin-top: 28px;
+    padding-top: 14px;
+    border-top: 1px solid color-mix(in srgb, var(--linen) 25%, transparent);
+    font: 600 11px / 1.34 var(--sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lime);
+    text-decoration: none;
+  }
+  .deck-home:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+  /* Live, the index carries the hub link, so the footer drops its copy. */
+  body:has(.deck.is-live) .deck-home-foot { display: none; }
 
   /* Arrow buttons. Square, a thin rule around. */
   .deck-btn {
@@ -579,4 +607,5 @@ img { display: block; max-width: 100%; }
   .slide-foot { display: grid; }
   /* The wordmark fills the foot of the closing slide, so the line stays off it. */
   .slide-close .slide-foot { display: none; }
+  .close-links { display: none; }
 }

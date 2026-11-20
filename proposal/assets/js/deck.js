@@ -5,7 +5,8 @@
    1. Builds the index beside the slides: the deck title from data-title
       on .deck, then one link per .chapter, numbered by its place in the
       deck, with a pip for every slide in the current chapter. The arrows
-      at its foot move a chapter.
+      at its foot move a chapter. With data-home on .deck, an
+      "All materials" link to the hub sits under the chapters.
    2. Writes the frame on every slide. Never write it by hand.
       - The chapter label at the top, "02  Phases", from the chapter's
         place and its data-name.
@@ -77,6 +78,15 @@
     index.appendChild(a);
     return a;
   });
+  // The way back to the hub, under the chapters, from data-home on .deck.
+  if (deck.dataset.home) {
+    var hub = document.createElement('a');
+    hub.className = 'deck-home';
+    hub.href = deck.dataset.home;
+    hub.textContent = 'All materials';
+    index.appendChild(hub);
+  }
+
   var ctrl = document.createElement('div');
   ctrl.className = 'deck-ctrl';
   var up = btn('Previous chapter', '&#8593;'), down = btn('Next chapter', '&#8595;');

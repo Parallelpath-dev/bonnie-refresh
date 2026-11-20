@@ -526,3 +526,30 @@ img, video { display: block; max-width: 100%; }
   .media, .shot, .placeholder, .photo, .photo-grid > *, .bar-track,
   .data-table tr, .toc a { break-inside: avoid; }
 }
+
+/* ---------- WAY AROUND ----------
+   "All materials" closes the top line and the footer and goes back to
+   the hub. Keep going sits above the footer and links on to the other
+   two pieces, built like the hub's rows. */
+.frame-home { grid-column: 5; justify-self: end; color: var(--mark); text-decoration: none; }
+.frame-home:hover, .frame-home:focus-visible { text-decoration: underline; text-underline-offset: 0.25em; }
+.next-band { padding: var(--band-pad) 0 calc(var(--band-pad) * 0.6); }
+.next-kicker { margin-bottom: clamp(1.5rem, 2.5vw, 3rem); }
+.next {
+  display: grid;
+  grid-template-columns: var(--cols);
+  column-gap: var(--gap);
+  align-items: baseline;
+  padding: clamp(1rem, 1.4vw, 1.75rem) 0 clamp(2rem, 3.2vw, 3.75rem);
+  border-top: var(--rule) solid var(--ink);
+  color: inherit;
+  text-decoration: none;
+}
+.next p { max-width: 34ch; color: color-mix(in srgb, var(--ink) 80%, transparent); }
+.next:hover, .next:focus-visible { color: var(--mark); border-top-color: var(--mark); outline: none; }
+.next:hover p, .next:focus-visible p { color: var(--ink); }
+@media (max-width: 900px) {
+  .next { grid-template-columns: 1fr; row-gap: 1rem; }
+  .frame-home { grid-column: 1 / -1; justify-self: start; }
+}
+@media print { .frame-home, .next-band { display: none; } }

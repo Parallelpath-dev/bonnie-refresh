@@ -23,7 +23,12 @@ The pitch deck links to both. On the slide headed "Everything from this
 session on one page", the row "Research leave-behind" opens
 `../research/index.html` and the row "SOW leave-behind" opens
 `../proposal/index.html`. Those are the only links between the three.
-Neither leave-behind links back. The hub links to all three.
+The hub links to all three. Each leave-behind links back to the hub with
+"All materials": in the research page's top line and footer, and in the
+proposal's chapter index (from `data-home` on `.deck`) or its footer when
+stacked. The research page ends with "Keep going" rows to the proposal
+and the presentation, and the proposal's closing slide links to the hub,
+the research and the presentation. These links hide in print.
 
 The research page (seven sections) and the proposal are written and
 built.
